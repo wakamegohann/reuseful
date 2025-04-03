@@ -29,8 +29,8 @@ services:
       context: ./
       dockerfile: ./docker/django/Dockerfile
     volumes:
-      - ./back/media:/home/kiyo/reuseful/media
-      - ./back/static:/home/kiyo/reuseful/static
+      - ./back/media:/home/kiyo/reuseful/src/media
+      - ./back/static:/home/kiyo/reuseful/src/static
     env_file:
       - ./.env
     container_name: ${DJANGO_CONTAINER_NAME}
