@@ -1,0 +1,75 @@
+services:
+  nginx:
+    build:
+      context: ./
+      dockerfile: ./docker/nginx/Dockerfile
+    env_file:
+      - ./.env
+    container_name: ${NGINX_CONTAINER_NAME}
+    volumes:
+      - https-portal-data:/var/lib/https-portal
+      - ./docker/nginx/ssl_certs:/var/lib/https-portal  
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/reuseful.conf
+      - ./docker/logs/nginx.acc.log:/var/log/nginx/access.log
+      - ./docker/logs/nginx.err.log:/var/log/nginx/error.log
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAINS: ${DOMAIN_NAME} -> http://${NGINX_CONTAINER_NAME}:${NGINX_WATCH_PORT}/
+      CLIENT_MAX_BODY_SIZE: 100M
+      STAGE: ${HTTPS_STAGE}
+      WEBSOCKET: "true"
+    depends_on:
+      - django
+
+  django:
+    build:
+      context: ./
+      dockerfile: ./docker/django/Dockerfile
+    volumes:
+      - ./back/media:/home/kiyo/reuseful/media
+      - ./back/static:/home/kiyo/reuseful/static
+    env_file:
+      - ./.env
+    container_name: ${DJANGO_CONTAINER_NAME}
+    expose:
+      - ${DJANGO_CONTAINER_PORT}
+  
+  react:
+    build:
+      context: ./
+      dockerfile: ./docker/react/Dockerfile
+    tty: true
+    volumes:
+      - ./front:/app
+      - ./front/node_modules:/app/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
+      - NEXT_PUBLIC_WS_URL=wss://local.masamasa.site/_next/webpack-hmr # WebSocketのURLを明示的に設定
+      - WDS_SOCKET_PORT=3000 # WebSocketのポート指定
+    env_file:
+      - ./.env
+    container_name: ${REACT_CONTAINER_NAME}
+    command: sh -c "npm run dev"
+    expose:
+      - ${REACT_CONTAINER_PORT}
+
+  mysql:
+    build:
+      context: ./
+      dockerfile: ./docker/mysql/Dockerfile
+    volumes:
+      - mysql_data:/var/lib/mysql
+    env_file:
+      - ./.env
+    container_name: ${MYSQL_CONTAINER_NAME}
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+    expose:
+      - ${MYSQL_CONTAINER_PORT}
+
+volumes:
+  https-portal-data:
+  mysql_data:

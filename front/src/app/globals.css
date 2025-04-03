@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  --background: #8B5757;
+  --foreground: #000000;
+}
+
+@theme {
+  --color-base-orange: #F6F0E9;
+  --color-base-red: #8B5757;
+  --color-search-font-color: #907777;
+  --color-tag-font-color: #907777;
+}
+
+:root {
+  --color-base-orange: #F6F0E9;
+  --color-base-red: #8B5757;
+  --color-search-font-color: #907777;
+  --color-tag-font-color: #907777;
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body Header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* 必要に応じて重なり順を調整 */
+}

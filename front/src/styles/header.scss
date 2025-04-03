@@ -1,0 +1,26 @@
+.header {
+  height: 8vh;
+  width: full;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 15vw;
+  text-align: center;
+}
+
+.logo-txt {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.buttons {
+  width: 15vw;
+  text-align: center;
+}
+
+.images {
+  display: inline-block;
+}
