@@ -1,6 +1,6 @@
 import "@/styles/item-detail.scss"
-import CategoryTag from "./category-tag";
 import Categorylist from "./category-tag";
+import Image from "next/image";
 
 const ItemDetail = () => {
   const categories = [
@@ -12,7 +12,7 @@ const ItemDetail = () => {
   return (
     <>
       <div className='item-image'>
-        <img src={`https://picsum.photos/500/500?random=${Math.random()}`} loading='lazy' alt='item-image'/> 
+        <Image src={`https://picsum.photos/500/500?random=${Math.random()}`} loading='lazy' alt='item-image'/> 
       </div>
       <div className='padding-container'>
         <div className='item-base-info'>

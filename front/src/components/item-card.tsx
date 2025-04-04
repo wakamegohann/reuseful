@@ -1,6 +1,7 @@
 import Categorylist from "./category-tag";
 import Link from 'next/link';
 import "@/styles/item-card.scss";
+import Image from "next/image";
 
 
 const ItemCardList = ({ uuids }: { uuids: string[] }) => {
@@ -26,11 +27,11 @@ const ItemCard = (
     <article className='article'>
 
       <Link href={`/item/${uuid}`}>
-        <img src={`https://picsum.photos/250/250?random=${Math.random()}`}
+        <Image src={`https://picsum.photos/250/250?random=${Math.random()}`}
         loading='lazy'
         alt='item-image'
         className='image'
-        ></img>
+        ></Image>
       </Link>
       <div className='detail bg-gray-100'>
         <div className='category'>
@@ -38,7 +39,7 @@ const ItemCard = (
         </div>
         <div className='property'>
           <div className='value'>￥1500</div>
-          <button className='favorite'><img src={`${process.env.MEDIA_BASE_URL}/_system/hart.svg`} alt='favorite-button' loading='lazy'></img></button>
+          <button className='favorite'><Image src={`${process.env.MEDIA_BASE_URL}/_system/hart.svg`} alt='favorite-button' loading='lazy'></Image></button>
         </div>
       </div>
 
