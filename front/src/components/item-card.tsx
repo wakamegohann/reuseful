@@ -41,9 +41,9 @@ const ItemCard = (
             <Categorylist categories={categories} className='tag-design' />
         </div>
         <div className='property'>
-          <div className='value'>￥1500</div>
+          <div className='value'>1500</div>
           <div className='favorite'>
-            <button><Image src={`${process.env.MEDIA_BASE_URL}/_system/hart.svg`} alt='favorite-button' width={40} height={10} layout='intrinisc' /></button>
+            <button><Image src={`${process.env.MEDIA_BASE_URL}/_system/hart.svg`} alt='favorite-button' fill /></button>
           </div>
         </div>
       </div>

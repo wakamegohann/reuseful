@@ -41,13 +41,19 @@
       font-size: x-large;
       margin-left: 1vw;
       width: 35vw;
+
+      &::before {
+        content: '￥'
+      }
+
     }
 
     .favorite {
-      margin-top: 5px;
-      margin-right: 3vw;
-      min-width: 25px;
-      min-height: auto;
+      position: relative;
+      width: 6vw;
+      height: 6vw;
+      margin-top: 1.5vw;
+      margin-right: 2.5vw;
     }
 
   }
