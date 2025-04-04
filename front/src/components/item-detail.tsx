@@ -12,7 +12,7 @@ const ItemDetail = () => {
   return (
     <>
       <div className='item-image'>
-        <Image src={`https://picsum.photos/500/500?random=${Math.random()}`} loading='lazy' alt='item-image'/> 
+        <Image src={`https://picsum.photos/500/500?random=${Math.random()}`} alt='item-image' width={500} height={500} /> 
       </div>
       <div className='padding-container'>
         <div className='item-base-info'>

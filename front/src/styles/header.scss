@@ -1,24 +1,56 @@
+$headerHeight: 8vh;
+$logoHeight: 3.5vh;
+
 .header {
-  height: 8vh;
-  width: full;
+  padding-left: 2vw;
+  height: $headerHeight;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
   align-items: center;
+
+  .logo-icon {
+    position: relative;
+    margin: 0;
+    height: $logoHeight;
+    width: $logoHeight;
+  }
+
+  .logo-text {
+    position: relative;
+    margin: 0;
+    height: $logoHeight;
+    width: $logoHeight*5.5;
+  }
+
 }
 
-.logo {
-  width: 15vw;
-  text-align: center;
-}
+.button-container {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
-.logo-txt {
-  flex-grow: 1;
-  text-align: center;
-}
+  .heart {
+    position: relative;
+    height: $logoHeight;
+    width: $logoHeight;
+  }
 
-.buttons {
-  width: 15vw;
-  text-align: center;
+  .cart {
+    position: relative;
+    height: $logoHeight*1.1;
+    width: $logoHeight*1.1;
+    margin-bottom: 3px;
+  }
+
 }
 
 .images {
