@@ -28,6 +28,7 @@ const ItemCard = (
       <Link href={`/item/${uuid}`}>
         <img src={`https://picsum.photos/250/250?random=${Math.random()}`}
         loading='lazy'
+        alt='item-image'
         className='image'
         ></img>
       </Link>
@@ -37,7 +38,7 @@ const ItemCard = (
         </div>
         <div className='property'>
           <div className='value'>￥1500</div>
-          <button className='favorite'><img src={`${process.env.MEDIA_BASE_URL}/_system/hart.svg`} loading='lazy'></img></button>
+          <button className='favorite'><img src={`${process.env.MEDIA_BASE_URL}/_system/hart.svg`} alt='favorite-button' loading='lazy'></img></button>
         </div>
       </div>
 
