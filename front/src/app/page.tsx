@@ -2,7 +2,9 @@ import ItemCardList from "@/components/item/item-card"
 import MobileSearchBar from "@/components/search/mobile-search-bar";
 import "@/styles/common-styles.scss"
 
-export default function Home() {
+export const revalidate = 600;
+
+export default async function Home() {
   const uuids = [
     '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16'
   ]
