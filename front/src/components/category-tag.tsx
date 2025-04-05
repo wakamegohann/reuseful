@@ -1,6 +1,6 @@
 import "@/styles/category-tag.scss"
 import React from "react";
-
+import Link from 'next/link';
 
 interface CategoryTagProps {
   id: number;
@@ -24,9 +24,7 @@ const Categorylist: React.FC<CategorylistProps> = ({categories, className}) => {
 
 const CategoryTag: React.FC<{text:string, className:string}> = ({text, className}) => {
   return (
-    <a 
-    className={`tag ${className}`}
-    >{text}</a>
+    <Link href={`category/#${text}`} className={`tag ${className}`}>{text}</Link>
   );
 }
 
