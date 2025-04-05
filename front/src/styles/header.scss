@@ -1,58 +1,133 @@
-$headerHeight: 8vh;
-$logoHeight: 3.5vh;
+@use './mixins';
 
-.header {
-  padding-left: 2vw;
-  height: $headerHeight;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+//PC用スタイル
+@include mixins.mq(pc) {
+  $headerHeight: 15vh;
+  $logoHeight: 7vh;
+
+  .header {
+    padding-left: 2vw;
+    height: $headerHeight;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .logo-icon {
+      position: relative;
+      margin: 0;
+      height: $logoHeight;
+      width: $logoHeight;
+    }
+
+    .logo-text {
+      position: relative;
+      margin: 0;
+      height: $logoHeight;
+      width: calc($logoHeight*5.5);
+    }
+
+  }
+
+  .search-bar-container {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-container {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .heart {
+      position: relative;
+      height: $logoHeight;
+      width: $logoHeight;
+    }
+
+    .cart {
+      position: relative;
+      height: calc($logoHeight*1.1);
+      width: calc($logoHeight*1.1);
+      margin-bottom: 3px;
+    }
+
+  }
+
+  .images {
+    display: inline-block;
+  }
 }
 
-.logo-container {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
+//スマートフォン用スタイル
+@include mixins.mq(sp) {
+  $headerHeight: 8vh;
+  $logoHeight: 3.5vh;
 
-  .logo-icon {
-    position: relative;
-    margin: 0;
-    height: $logoHeight;
-    width: $logoHeight;
+  .header {
+    padding-left: 2vw;
+    height: $headerHeight;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 
-  .logo-text {
-    position: relative;
-    margin: 0;
-    height: $logoHeight;
-    width: calc($logoHeight*5.5);
+  .logo-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .logo-icon {
+      position: relative;
+      margin: 0;
+      height: $logoHeight;
+      width: $logoHeight;
+    }
+
+    .logo-text {
+      position: relative;
+      margin: 0;
+      height: $logoHeight;
+      width: calc($logoHeight*5.5);
+    }
+
   }
 
-}
+  .button-container {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
-.button-container {
-  width: 25%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    .heart {
+      position: relative;
+      height: $logoHeight;
+      width: $logoHeight;
+    }
 
-  .heart {
-    position: relative;
-    height: $logoHeight;
-    width: $logoHeight;
+    .cart {
+      position: relative;
+      height: calc($logoHeight*1.1);
+      width: calc($logoHeight*1.1);
+      margin-bottom: 3px;
+    }
+
   }
 
-  .cart {
-    position: relative;
-    height: calc($logoHeight*1.1);
-    width: calc($logoHeight*1.1);
-    margin-bottom: 3px;
+  .images {
+    display: inline-block;
   }
-
-}
-
-.images {
-  display: inline-block;
 }

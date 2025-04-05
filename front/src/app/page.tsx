@@ -1,6 +1,5 @@
-import Search from "@/components/search-bar"
-import ItemCardList from "@/components/item-card"
-import "@/styles/item-list.scss"
+import ItemCardList from "@/components/item/item-card"
+import MobileSearchBar from "@/components/search/mobile-search-bar";
 import "@/styles/common-styles.scss"
 
 export default function Home() {
@@ -10,11 +9,11 @@ export default function Home() {
 
   return (
     <main className='main-container'>
-      <div className='py-12'><Search /></div>
-      <h1 className='title'>Suggest</h1>
-      <div className='item-list'>
-        <ItemCardList uuids={uuids}/>
+      <div className='block md:hidden'>
+        <MobileSearchBar />
       </div>
+      <h1 className='title'>Suggest</h1>
+      <ItemCardList uuids={uuids}/>
     </main>
   );
 }

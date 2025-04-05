@@ -1,0 +1,15 @@
+//mapモジュール
+@use 'sass:map';
+
+//ブレイクポイント
+$breakpoints: (
+  'pc': 'screen and (min-width: 768px)',
+  'sp': 'screen and (max-width: 767px)',
+  );
+
+//メディアクエリのミックスイン
+@mixin mq($breakpoint) {
+  @media #{map.get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

@@ -1,6 +1,5 @@
-import ItemDetail from '@/components/item-detail';
-import Search from '@/components/search-bar';
-import ItemCardList from '@/components/item-card';
+import ItemDetail from '@/components/item/item-detail';
+import ItemCardList from '@/components/item/item-card';
 import "@/styles/common-styles.scss"
 
 export default function ItemDetailPage({ params }: { params: { uuid: string } }) {
@@ -13,7 +12,6 @@ export default function ItemDetailPage({ params }: { params: { uuid: string } })
   return (
     <main className='main-container'>
       <ItemDetail />
-      <div className='py-12'><Search /></div>
       <h1 className='title'>Suggest</h1>
       <div className='item-list'>
         <ItemCardList uuids={uuids}/>

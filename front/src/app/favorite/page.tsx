@@ -1,4 +1,4 @@
-import ItemCardList from "@/components/item-card"
+import ItemCardList from "@/components/item/item-card"
 import "@/styles/common-styles.scss"
 import "@/styles/item-list.scss"
 
