@@ -7,16 +7,14 @@ import Image from "next/image";
 const ItemCardList = ({ uuids }: { uuids: string[] }) => {
   return (
     <>
-      {uuids.map((uuid) => (
-        <ItemCard key={uuid} uuid={uuid} />
+      {uuids.map((uuid, index) => (
+        <ItemCard key={uuid} uuid={uuid} priority={index < 4} />
       ))}
     </>
   );
 };
 
-const ItemCard = (
-    { uuid }:{ uuid:string,}
-  ) => {
+const ItemCard = ({ uuid, priority = false }: { uuid: string, priority?: boolean }) => {
     const categories = [
       { id: 1, text: 'スポーツ用品'},
       { id: 2, text: '家具'},
@@ -32,7 +30,7 @@ const ItemCard = (
             alt='item-image'
             className='image'
             width={250} height={250}
-            priority
+            priority={priority}
           />
         </div>
       </Link>
