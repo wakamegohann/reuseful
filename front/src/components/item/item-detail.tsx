@@ -1,8 +1,8 @@
 import "@/styles/item-detail.scss"
-import Categorylist from "./category-tag";
+import Categorylist from "@/components/category-tag";
 import Image from "next/image";
 
-const ItemDetail = () => {
+const ItemDetail = ({ uuid }: {uuid:string}) => {
   const categories = [
     { id: 1, text: 'スポーツ用品' },
     { id: 2, text: '家具' },
@@ -16,7 +16,7 @@ const ItemDetail = () => {
       </div>
       <div className='padding-container'>
         <div className='item-base-info'>
-          <p className='item-text'>あいうえおあいうえおあいうえおあいうえおあいうえおあいうえお</p>
+          <p className='item-text'>{uuid}あいうえおあいうえおあいうえおあいうえおあいうえおあいうえお</p>
           
           <div className='category'>
             <Categorylist categories={categories} className='tag-design'/>
